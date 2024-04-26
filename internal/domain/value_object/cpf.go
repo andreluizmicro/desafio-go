@@ -12,11 +12,11 @@ var (
 )
 
 type CPF struct {
-	value string
+	Value string
 }
 
 func NewCPF(value string) (*CPF, error) {
-	cpf := CPF{value: value}
+	cpf := CPF{Value: value}
 	err := cpf.validate()
 	if err != nil {
 		return nil, err
@@ -26,7 +26,7 @@ func NewCPF(value string) (*CPF, error) {
 
 func (c *CPF) validate() error {
 	cpfRegex := regexp.MustCompile(`[^0-9]`)
-	cpf := cpfRegex.ReplaceAllString(c.value, "")
+	cpf := cpfRegex.ReplaceAllString(c.Value, "")
 
 	if len(cpf) != cpfLength {
 		return ErrInvalidCPF

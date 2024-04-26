@@ -16,17 +16,17 @@ var (
 )
 
 type Password struct {
-	value string
+	Value string
 }
 
 func NewPassword(value string) (*Password, error) {
-	password := Password{value: value}
+	password := Password{Value: value}
 	err := password.validate()
 	if err != nil {
 		return nil, err
 	}
 
-	err = password.HashPassword(password.value)
+	err = password.HashPassword(password.Value)
 	if err != nil {
 		return nil, err
 	}

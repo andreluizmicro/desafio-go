@@ -15,11 +15,11 @@ var (
 )
 
 type Name struct {
-	value string
+	Value string
 }
 
 func NewName(value string) (*Name, error) {
-	name := Name{value: strings.ToUpper(value)}
+	name := Name{Value: strings.ToUpper(value)}
 	err := name.validate()
 	if err != nil {
 		return nil, err
@@ -28,7 +28,7 @@ func NewName(value string) (*Name, error) {
 }
 
 func (n *Name) validate() error {
-	if len(n.value) <= nameMinLength || len(n.value) > nameMaxLength {
+	if len(n.Value) <= nameMinLength || len(n.Value) > nameMaxLength {
 		return ErrInvalidName
 	}
 	return nil
